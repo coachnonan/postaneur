@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Postaneur - Business Content DNA</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div>
+          <h1>Postaneur</h1>
+          <p class="subtitle">Business Content DNA Platform</p>
+        </div>
+        <div class="status" id="profileStatus">Profile: Not completed</div>
+      </header>
+
+      <nav class="nav">
+        <button class="nav-btn" data-view="onboarding">Onboarding</button>
+        <button class="nav-btn" data-view="dashboard">Dashboard</button>
+        <button class="nav-btn" data-view="generator">Content Generator</button>
+        <button class="nav-btn" data-view="output">Content Output</button>
+        <button class="nav-btn" data-view="library">Content Library</button>
+        <button class="nav-btn" data-view="profile">Business Profile</button>
+      </nav>
+
+      <main>
+        <section id="onboarding" class="view">
+          <div class="card">
+            <h2>Onboarding</h2>
+            <p class="muted">
+              Complete this once to build your Business Content DNA. It powers every future
+              content request.
+            </p>
+            <form id="onboardingForm">
+              <div class="form-grid">
+                <div>
+                  <label>Your Name</label>
+                  <input type="text" name="ownerName" required />
+                </div>
+                <div>
+                  <label>Business Email</label>
+                  <input type="email" name="businessEmail" required />
+                </div>
+                <div>
+                  <label>Business Name</label>
+                  <input type="text" name="businessName" required />
+                </div>
+                <div>
+                  <label>Business Contact Number</label>
+                  <input type="tel" name="businessContact" required />
+                </div>
+                <div>
+                  <label>Business Location</label>
+                  <input type="text" name="businessLocation" required />
+                </div>
+                <div>
+                  <label>Type of Industry</label>
+                  <input type="text" name="industry" required />
+                </div>
+              </div>
+
+              <h3>Brand Voice Input</h3>
+              <label>Tone example #1</label>
+              <textarea name="toneExample1" required></textarea>
+              <label>Tone example #2 (optional)</label>
+              <textarea name="toneExample2"></textarea>
+              <div class="form-grid">
+                <div>
+                  <label>Words or phrases to use</label>
+                  <input type="text" name="wordsToUse" placeholder="Bold, premium, consultative" />
+                </div>
+                <div>
+                  <label>Words or phrases to avoid</label>
+                  <input type="text" name="wordsToAvoid" placeholder="Cheap, spammy" />
+                </div>
+              </div>
+
+              <h3>Products / Services</h3>
+              <div id="products"></div>
+              <button type="button" class="secondary" id="addProduct">
+                + Add product or service
+              </button>
+
+              <h3>Target Audience</h3>
+              <label>Target customer type</label>
+              <input type="text" name="targetCustomer" required />
+              <label>Biggest customer problem</label>
+              <input type="text" name="customerProblem" required />
+              <label>Desired customer outcome</label>
+              <input type="text" name="customerOutcome" required />
+
+              <h3>Content Direction</h3>
+              <div class="form-grid">
+                <div>
+                  <label>Main content goal</label>
+                  <select name="contentGoal" required>
+                    <option value="">Select</option>
+                    <option>Leads</option>
+                    <option>Sales</option>
+                    <option>Trust</option>
+                    <option>Education</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Preferred call-to-action</label>
+                  <select name="callToAction" required>
+                    <option value="">Select</option>
+                    <option>DM</option>
+                    <option>Visit website</option>
+                    <option>Book call</option>
+                    <option>Buy now</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Primary content platform</label>
+                  <select name="platform" required>
+                    <option value="">Select</option>
+                    <option>Instagram</option>
+                    <option>Facebook</option>
+                    <option>YouTube</option>
+                    <option>LinkedIn</option>
+                    <option>Blog</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit">Save Business Content DNA</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section id="dashboard" class="view hidden">
+          <div class="card">
+            <h2>Dashboard</h2>
+            <div class="dashboard-grid" id="dashboardSummary"></div>
+            <div class="quick-actions">
+              <button data-view="generator">Generate content</button>
+              <button data-view="profile" class="secondary">Edit business info</button>
+              <button data-view="library" class="secondary">View saved content</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="generator" class="view hidden">
+          <div class="card">
+            <h2>Content Generator</h2>
+            <form id="generatorForm">
+              <div class="form-grid">
+                <div>
+                  <label>Content type</label>
+                  <select name="contentType" required>
+                    <option value="">Select</option>
+                    <option>Post</option>
+                    <option>Reel script</option>
+                    <option>Ad</option>
+                    <option>Email</option>
+                    <option>Blog</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Topic or idea</label>
+                  <input type="text" name="topic" required />
+                </div>
+                <div>
+                  <label>Length preference</label>
+                  <select name="length">
+                    <option>Short</option>
+                    <option>Medium</option>
+                    <option>Long</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit">Generate content</button>
+            </form>
+          </div>
+        </section>
+
+        <section id="output" class="view hidden">
+          <div class="card">
+            <h2>Content Output</h2>
+            <p class="muted">Copy-ready, platform-optimized content generated from your DNA.</p>
+            <div class="output-toolbar">
+              <button id="regenerate">Regenerate</button>
+              <button id="editOutput" class="secondary">Edit manually</button>
+              <button id="saveOutput">Save</button>
+              <button id="copyOutput" class="secondary">Copy</button>
+              <button id="exportOutput" class="secondary">Export</button>
+            </div>
+            <textarea id="outputText" rows="14" readonly></textarea>
+          </div>
+        </section>
+
+        <section id="library" class="view hidden">
+          <div class="card">
+            <h2>Content Library</h2>
+            <div id="libraryList" class="library"></div>
+          </div>
+        </section>
+
+        <section id="profile" class="view hidden">
+          <div class="card">
+            <h2>Business Profile Editor</h2>
+            <form id="profileForm"></form>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
